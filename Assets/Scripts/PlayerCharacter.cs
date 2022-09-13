@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class PlayerCharacter : Character
 {
@@ -73,7 +72,7 @@ public class PlayerCharacter : Character
     {
         if (hasAuthority)
         {
-            _currentHealth = ServerHealth;            
+            _currentHealth = playerHealth;            
         }
     }
 
@@ -98,7 +97,7 @@ public class PlayerCharacter : Character
         {
             var info = $"Health: {_currentHealth}\nClip: {fireAction.bulletCount}";
             var size = 12;
-            var bulletCountSize = 50;
+            var bulletCountSize = 10;
             var posX = Camera.main.pixelWidth / 2 - size / 4;
             var posY = Camera.main.pixelHeight / 2 - size / 2;
             var posXBul = Camera.main.pixelWidth - bulletCountSize * 2;

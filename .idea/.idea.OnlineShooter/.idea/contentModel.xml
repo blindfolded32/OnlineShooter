@@ -9,11 +9,11 @@
         <e p="Scripts" t="Include">
           <e p="Character.cs" t="Include" />
           <e p="Data.cs" t="Include" />
-          <e p="FireAction.cs" t="Include" />
           <e p="MouseLook.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerCharacter.cs" t="Include" />
           <e p="RayShooter.cs" t="Include" />
+          <e p="ShootingAction.cs" t="Include" />
           <e p="UIController.cs" t="Include" />
         </e>
       </e>

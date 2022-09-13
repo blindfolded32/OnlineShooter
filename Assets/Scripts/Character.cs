@@ -10,7 +10,7 @@ public abstract class Character : NetworkBehaviour
     [SyncVar] protected Quaternion serverRotation;
     [SyncVar] protected int CountPlayers;
     [SyncVar] private int money = 100;
-    [SyncVar] protected int ServerHealth;
+    [SyncVar] protected int playerHealth;
 
     protected virtual void Initiate()
     {
@@ -38,7 +38,7 @@ public abstract class Character : NetworkBehaviour
     [Command]
     protected void CmdSetStartHealth(int health)
     {
-        ServerHealth = health;
+        playerHealth = health;
     }
 
     [Command]
@@ -50,11 +50,11 @@ public abstract class Character : NetworkBehaviour
 
     public void UpdateHealth()
     {
-        ServerHealth -= 5;
+        playerHealth -= 5;
 
-        if(ServerHealth <= 0)
+        if(playerHealth <= 0)
         {
-            ServerHealth = 0;
+            playerHealth = 0;
             NetworkServer.DisconnectAll();
         }
     }

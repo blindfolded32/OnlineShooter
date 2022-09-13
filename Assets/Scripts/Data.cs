@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Networking;
 public class Data : NetworkManager
 {
@@ -18,7 +15,7 @@ public class Data : NetworkManager
     {
         base.OnClientConnect(conn);
         MyMessage myMessage = new MyMessage();
-        myMessage.chislo = 2;
+        myMessage.number = 2;
         conn.Send(100, myMessage);
     }
 
@@ -30,18 +27,18 @@ public class Data : NetworkManager
 
     public void ReceiveInt(NetworkMessage networkMessage)
     { 
-    //что-то
+    
     }
 }
 public class MyMessage : MessageBase
 {
-    public int chislo;    
+    public int number;    
     public override void Serialize(NetworkWriter writer)
     {
-        writer.Write(chislo);
+        writer.Write(number);
     }
     public override void Deserialize(NetworkReader reader)
     {
-        chislo = reader.ReadInt32();
+        number = reader.ReadInt32();
     }
 }

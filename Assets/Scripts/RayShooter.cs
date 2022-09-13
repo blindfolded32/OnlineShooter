@@ -1,15 +1,14 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class RayShooter : FireAction
+public class RayShooter : ShootingAction
 {
-    private Camera camera;
+    private Camera _camera;
     private PlayerCharacter _player;
     protected override void Start()
     {
         base.Start();
-        camera = GetComponentInChildren<Camera>();
+        _camera = GetComponentInChildren<Camera>();
         _player = GetComponent<PlayerCharacter>();
     }
     private void Update()
@@ -48,8 +47,8 @@ public class RayShooter : FireAction
 
     public void ServerShoot()
     {
-        var point = new Vector3(camera.pixelWidth / 2, camera.pixelHeight / 2, 0);
-        var ray = camera.ScreenPointToRay(point);
+        var point = new Vector3(_camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
+        var ray = _camera.ScreenPointToRay(point);
         if (Physics.Raycast(ray, out var hit))
         {
             var character = hit.collider.GetComponentInParent<PlayerCharacter>();
@@ -68,7 +67,7 @@ public class RayShooter : FireAction
         }
         var point = new Vector3(Camera.main.pixelWidth / 2,
         Camera.main.pixelHeight / 2, 0);
-        var ray = camera.ScreenPointToRay(point);
+        var ray = _camera.ScreenPointToRay(point);
         if (!Physics.Raycast(ray, out var hit))
         {
             yield break;
