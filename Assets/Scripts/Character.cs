@@ -9,7 +9,7 @@ public abstract class Character : NetworkBehaviour
     [SyncVar] protected Vector3 serverPosition;
     [SyncVar] protected Quaternion serverRotation;
     [SyncVar] protected int CountPlayers;
-    [SyncVar] private int money = 100;
+    //[SyncVar] private int money = 100;
     [SyncVar] protected int playerHealth;
 
     protected virtual void Initiate()
